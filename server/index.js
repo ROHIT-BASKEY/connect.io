@@ -2,6 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
 const cookieParser = require('cookie-parser')
+const authRouters = require("./routes/AuthRoutes")
 mongoose
   .connect('mongodb://localhost:27017/jwt', {
     useNewUrlParser: true,
@@ -28,3 +29,4 @@ app.use(
 )
 app.use(cookieParser())
 app.use(express.json())
+app.use("/",authRouters);
